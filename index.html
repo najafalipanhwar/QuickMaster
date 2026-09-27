@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuizMaster | Interactive Quiz App</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">🧠 <span>QuizMaster</span></div>
+  <button id="themeBtn" class="theme">☾</button>
+</header>
+
+<main>
+<section id="startScreen" class="screen active">
+  <div class="hero-card">
+    <div class="brain">🧠</div>
+    <span class="eyebrow">Test your knowledge</span>
+    <h1>Ready for the <span>challenge?</span></h1>
+    <p>Choose a category, set your difficulty and see how much you know.</p>
+    <div class="settings">
+      <label>Category
+        <select id="category">
+          <option value="All">All Categories</option>
+          <option value="Science">Science</option>
+          <option value="Technology">Technology</option>
+          <option value="History">History</option>
+          <option value="Geography">Geography</option>
+        </select>
+      </label>
+      <label>Difficulty
+        <select id="difficulty">
+          <option value="All">All Levels</option>
+          <option value="Easy">Easy</option>
+          <option value="Medium">Medium</option>
+          <option value="Hard">Hard</option>
+        </select>
+      </label>
+      <label>Questions
+        <select id="questionCount">
+          <option value="5">5 Questions</option>
+          <option value="8">8 Questions</option>
+          <option value="10">10 Questions</option>
+        </select>
+      </label>
+    </div>
+    <button id="startBtn" class="primary">Start Quiz →</button>
+    <div class="features"><span>⏱️ Timed</span><span>🏆 Score</span><span>📊 Review</span></div>
+  </div>
+</section>
+
+<section id="quizScreen" class="screen">
+  <div class="quiz-head">
+    <div><span class="eyebrow" id="quizCategory">QUIZ</span><h2>Question <span id="currentNum">1</span> of <span id="totalNum">5</span></h2></div>
+    <div class="timer">⏱ <b id="timer">20</b>s</div>
+  </div>
+  <div class="progress"><span id="progress"></span></div>
+  <div class="question-card">
+    <div class="question-meta"><span id="difficultyBadge">Easy</span><span id="questionPoints">10 points</span></div>
+    <h1 id="questionText"></h1>
+    <div id="answers" class="answers"></div>
+    <div class="quiz-actions"><button id="nextBtn" class="primary" disabled>Next Question →</button></div>
+  </div>
+  <div class="score-strip"><span>🏆 Score: <b id="liveScore">0</b></span><span>✓ Answered: <b id="answered">0</b></span></div>
+</section>
+
+<section id="resultScreen" class="screen">
+  <div class="result-card">
+    <div id="resultIcon" class="result-icon">🏆</div>
+    <span class="eyebrow">Quiz complete</span>
+    <h1 id="resultTitle">Great job!</h1>
+    <p id="resultMessage"></p>
+    <div class="result-score"><span>Your score</span><strong id="finalScore">0</strong><small id="scorePercent">0%</small></div>
+    <div class="result-stats">
+      <div><b id="correctCount">0</b><span>Correct</span></div>
+      <div><b id="wrongCount">0</b><span>Wrong</span></div>
+      <div><b id="skippedCount">0</b><span>Skipped</span></div>
+    </div>
+    <div class="result-actions"><button id="reviewBtn" class="secondary">Review Answers</button><button id="restartBtn" class="primary">Try Again</button></div>
+  </div>
+</section>
+
+<section id="reviewScreen" class="screen">
+  <div class="review-head"><div><span class="eyebrow">Your answers</span><h2>Quiz Review</h2></div><button id="backResult" class="secondary">← Results</button></div>
+  <div id="reviewList" class="review-list"></div>
+</section>
+</main>
+
+<div id="toast" class="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
